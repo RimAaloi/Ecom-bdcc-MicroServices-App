@@ -1,6 +1,7 @@
 package org.sid.customerservice.config;
 
 import org.sid.customerservice.entities.Customer;
+import org.sid.customerservice.entities.CustomerProjection;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 public class RestRepositoryConfig implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+        config.getProjectionConfiguration().addProjection(CustomerProjection.class);
         config.exposeIdsFor(Customer.class);
     }
 }
