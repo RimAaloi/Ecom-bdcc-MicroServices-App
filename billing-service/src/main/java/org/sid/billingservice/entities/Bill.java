@@ -19,7 +19,7 @@ public class Bill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private Date billDate;
     private Long customerId;
     @OneToMany(mappedBy = "bill")
